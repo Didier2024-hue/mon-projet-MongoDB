@@ -1,0 +1,647 @@
+
+==================================================
+Connexion à la base de données :
+==================================================
+
+__________________________________________________
+a) Connexion à MongoDB avec authentification : OK
+[host='127.0.0.1', port=27017, username='datascientest', password='dst123']
+__________________________________________________
+
+__________________________________________________
+b) Liste des bases de données disponibles :
+__________________________________________________
+['admin', 'config', 'local', 'sample']
+
+__________________________________________________
+c) Collections disponibles dans 'sample':
+__________________________________________________
+['cie', 'grades', 'books', 'zips']
+
+__________________________________________________
+d) Un document de la collection 'books':
+__________________________________________________
+{   '_id': 1,
+    'authors': [   'W. Frank Ableson',
+                   'Charlie Collins',
+                   'Robi Sen'],
+    'categories': ['Open Source', 'Mobile'],
+    'isbn': '1933988673',
+    'longDescription': 'Android is an open '
+                       'source mobile phone '
+                       'platform based on the '
+                       'Linux operating system '
+                       'and developed by the '
+                       'Open Handset Alliance, a '
+                       'consortium of over 30 '
+                       'hardware, software and '
+                       'telecom companies that '
+                       'focus on open standards '
+                       'for mobile devices. Led '
+                       'by search giant, Google, '
+                       'Android is designed to '
+                       'deliver a better and '
+                       'more open and cost '
+                       'effective mobile '
+                       'experience.    Unlocking '
+                       "Android: A Developer's "
+                       'Guide provides concise, '
+                       'hands-on instruction for '
+                       'the Android operating '
+                       'system and development '
+                       'tools. This book teaches '
+                       'important architectural '
+                       'concepts in a '
+                       'straightforward writing '
+                       'style and builds on this '
+                       'with practical and '
+                       'useful examples '
+                       'throughout. Based on his '
+                       'mobile development '
+                       'experience and his deep '
+                       'knowledge of the arcane '
+                       'Android technical '
+                       'documentation, the '
+                       'author conveys the '
+                       'know-how you need to '
+                       'develop practical '
+                       'applications that build '
+                       'upon or replace any of '
+                       'Androids features, '
+                       'however small.    '
+                       'Unlocking Android: A '
+                       "Developer's Guide "
+                       'prepares the reader to '
+                       'embrace the platform in '
+                       'easy-to-understand '
+                       'language and builds on '
+                       'this foundation with '
+                       're-usable Java code '
+                       'examples. It is ideal '
+                       'for corporate and '
+                       'hobbyists alike who have '
+                       'an interest, or a '
+                       'mandate, to deliver '
+                       'software functionality '
+                       'for cell phones.    '
+                       "WHAT'S INSIDE:        * "
+                       "Android's place in the "
+                       'market      * Using the '
+                       'Eclipse environment for '
+                       'Android development      '
+                       '* The Intents - how and '
+                       'why they are used      * '
+                       'Application '
+                       'classes:            o '
+                       'Activity            o '
+                       'Service            o '
+                       'IntentReceiver       * '
+                       'User interface '
+                       'design      * Using the '
+                       'ContentProvider to '
+                       'manage data      * '
+                       'Persisting data with the '
+                       'SQLite database      * '
+                       'Networking examples      '
+                       '* Telephony '
+                       'applications      * '
+                       'Notification '
+                       'methods      * OpenGL, '
+                       'animation & '
+                       'multimedia      * Sample '
+                       'Applications  ',
+    'pageCount': 416,
+    'publishedDate': datetime.datetime(2009, 4, 1, 7, 0),
+    'shortDescription': 'Unlocking Android: A '
+                        "Developer's Guide "
+                        'provides concise, '
+                        'hands-on instruction '
+                        'for the Android '
+                        'operating system and '
+                        'development tools. This '
+                        'book teaches important '
+                        'architectural concepts '
+                        'in a straightforward '
+                        'writing style and '
+                        'builds on this with '
+                        'practical and useful '
+                        'examples throughout.',
+    'status': 'PUBLISH',
+    'thumbnailUrl': 'https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson.jpg',
+    'title': 'Unlocking Android'}
+
+==================================================
+Exploration de la base :
+==================================================
+
+__________________________________________________
+a) Afficher le nombre de livres avec plus de 400 pages, affichez ensuite le nombre de livres ayant plus de 400 pages ET qui sont publiés + Afficher le nombre de livres ayant le mot-clé Android dans leur description :
+Nombre de livres avec plus de 400 pages: 157
+Nombre de livres avec plus de 400 pages ET publiés: 155
+__________________________________________________
+
+__________________________________________________
+b)  Afficher le nombre de livres ayant le mot-clé Android dans leur description :
+Nombre de livres mentionnant 'Android' dans leur description: 4
+__________________________________________________
+
+__________________________________________________
+c) Grouper tous les documents - Créer 2 sets à partir des catégories contenus dans la liste categories selon leur index 0 ou 1 :
+
+Catégories (index 0):
+['Microsoft .NET',
+ 'Microsoft/.NET',
+ 'Client-Server',
+ 'Miscellaneous',
+ 'Object-Oriented Programming',
+ 'Algorithmic Art',
+ 'PHP',
+ 'Networking',
+ 'Mobile Technology',
+ 'Java',
+ 'Next Generation Databases',
+ 'Software Engineering',
+ 'Object-Technology Programming',
+ 'internet',
+ 'Web Development',
+ 'Theory',
+ 'Python',
+ 'In Action',
+ 'Internet',
+ 'Open Source',
+ 'Programming',
+ 'SOA',
+ 'XML',
+ 'java',
+ 'Computer Graphics',
+ 'Perl',
+ 'Business',
+ 'Microsoft',
+ 'PowerBuilder']
+
+Catégories (index 1):
+['.NET',
+ 'Java',
+ 'Business',
+ 'P',
+ 'Software Engineering',
+ 'Networking',
+ 'Perl',
+ 'Computer Graphics',
+ 'S',
+ 'Internet',
+ 'Mobile',
+ 'Python',
+ 'Theory',
+ 'Open Source',
+ 'Client-Server',
+ '',
+ 'Software Development']
+__________________________________________________
+
+__________________________________________________
+d)  Afficher le nombre de livres qui contiennent des noms de langages suivant dans leur description longue : Python, Java, C++, Scala :
+Nombre de livres mentionnant Python, Java, C++ ou Scala dans leur description longue : 131
+__________________________________________________
+
+__________________________________________________
+e)  Afficher diverses informations statistiques sur notre bases de données : nombre maximal, minimal, et moyen de pages par catégorie :
+Statistiques du nombre de pages par catégorie:
+
+Catégorie: 
+  - Max: 368 pages
+  - Min: 200 pages
+  - Moyenne: 284.0 pages
+
+Catégorie: .NET
+  - Max: 925 pages
+  - Min: 925 pages
+  - Moyenne: 925.0 pages
+
+Catégorie: Algorithmic Art
+  - Max: 0 pages
+  - Min: 0 pages
+  - Moyenne: 0.0 pages
+
+Catégorie: Business
+  - Max: 696 pages
+  - Min: 180 pages
+  - Moyenne: 404.2 pages
+
+Catégorie: Client Server
+  - Max: 368 pages
+  - Min: 368 pages
+  - Moyenne: 368.0 pages
+
+Catégorie: Client-Server
+  - Max: 1101 pages
+  - Min: 220 pages
+  - Moyenne: 516.0 pages
+
+Catégorie: Computer Graph
+  - Max: 400 pages
+  - Min: 400 pages
+  - Moyenne: 400.0 pages
+
+Catégorie: Computer Graphics
+  - Max: 840 pages
+  - Min: 328 pages
+  - Moyenne: 520.3 pages
+
+Catégorie: In Action
+  - Max: 0 pages
+  - Min: 0 pages
+  - Moyenne: 0.0 pages
+
+Catégorie: Internet
+  - Max: 912 pages
+  - Min: 0 pages
+  - Moyenne: 441.2 pages
+
+Catégorie: Java
+  - Max: 1088 pages
+  - Min: 0 pages
+  - Moyenne: 412.2 pages
+
+Catégorie: Microsoft
+  - Max: 925 pages
+  - Min: 344 pages
+  - Moyenne: 572.4 pages
+
+Catégorie: Microsoft .NET
+  - Max: 848 pages
+  - Min: 0 pages
+  - Moyenne: 437.0 pages
+
+Catégorie: Microsoft/.NET
+  - Max: 0 pages
+  - Min: 0 pages
+  - Moyenne: 0.0 pages
+
+Catégorie: Miscella
+  - Max: 0 pages
+  - Min: 0 pages
+  - Moyenne: 0.0 pages
+
+Catégorie: Miscellaneous
+  - Max: 1096 pages
+  - Min: 316 pages
+  - Moyenne: 706.0 pages
+
+Catégorie: Mobile
+  - Max: 416 pages
+  - Min: 416 pages
+  - Moyenne: 416.0 pages
+
+Catégorie: Mobile Technology
+  - Max: 504 pages
+  - Min: 0 pages
+  - Moyenne: 296.5 pages
+
+Catégorie: Networking
+  - Max: 591 pages
+  - Min: 0 pages
+  - Moyenne: 366.4 pages
+
+Catégorie: Next Generation Databases
+  - Max: 0 pages
+  - Min: 0 pages
+  - Moyenne: 0.0 pages
+
+Catégorie: Object-Oriented Programming
+  - Max: 512 pages
+  - Min: 350 pages
+  - Moyenne: 408.5 pages
+
+Catégorie: Object-Technology Programming
+  - Max: 200 pages
+  - Min: 200 pages
+  - Moyenne: 200.0 pages
+
+Catégorie: Open Source
+  - Max: 532 pages
+  - Min: 416 pages
+  - Moyenne: 474.0 pages
+
+Catégorie: P
+  - Max: 512 pages
+  - Min: 512 pages
+  - Moyenne: 512.0 pages
+
+Catégorie: PHP
+  - Max: 552 pages
+  - Min: 552 pages
+  - Moyenne: 552.0 pages
+
+Catégorie: Perl
+  - Max: 504 pages
+  - Min: 304 pages
+  - Moyenne: 385.3 pages
+
+Catégorie: PowerBuilder
+  - Max: 550 pages
+  - Min: 362 pages
+  - Moyenne: 433.7 pages
+
+Catégorie: Programming
+  - Max: 570 pages
+  - Min: 0 pages
+  - Moyenne: 362.2 pages
+
+Catégorie: Python
+  - Max: 688 pages
+  - Min: 350 pages
+  - Moyenne: 482.3 pages
+
+Catégorie: S
+  - Max: 350 pages
+  - Min: 350 pages
+  - Moyenne: 350.0 pages
+
+Catégorie: SOA
+  - Max: 250 pages
+  - Min: 250 pages
+  - Moyenne: 250.0 pages
+
+Catégorie: Software Development
+  - Max: 600 pages
+  - Min: 600 pages
+  - Moyenne: 600.0 pages
+
+Catégorie: Software Engineering
+  - Max: 544 pages
+  - Min: 0 pages
+  - Moyenne: 287.8 pages
+
+Catégorie: Theory
+  - Max: 591 pages
+  - Min: 280 pages
+  - Moyenne: 420.4 pages
+
+Catégorie: Web Development
+  - Max: 688 pages
+  - Min: 300 pages
+  - Moyenne: 441.5 pages
+
+Catégorie: XML
+  - Max: 680 pages
+  - Min: 304 pages
+  - Moyenne: 482.0 pages
+
+Catégorie: internet
+  - Max: 400 pages
+  - Min: 400 pages
+  - Moyenne: 400.0 pages
+
+Catégorie: java
+  - Max: 0 pages
+  - Min: 0 pages
+  - Moyenne: 0.0 pages
+
+__________________________________________________
+
+__________________________________________________
+f)  Filtrer seulement les livres publiés après 2009 :
+
+Livres publiés après 2009 (20 plus récents):
+[{'day': 24,
+  'month': 6,
+  'original_date': datetime.datetime(2014, 6, 24, 7, 0),
+  'title': 'The Well-Grounded Rubyist, Second Edition',
+  'year': 2014},
+ {'day': 10,
+  'month': 6,
+  'original_date': datetime.datetime(2014, 6, 10, 7, 0),
+  'title': 'Ember.js in Action',
+  'year': 2014},
+ {'day': 29,
+  'month': 5,
+  'original_date': datetime.datetime(2014, 5, 29, 7, 0),
+  'title': 'The Joy of Clojure, Second Edition',
+  'year': 2014},
+ {'day': 9,
+  'month': 5,
+  'original_date': datetime.datetime(2014, 5, 9, 7, 0),
+  'title': 'CoffeeScript in Action',
+  'year': 2014},
+ {'day': 2,
+  'month': 5,
+  'original_date': datetime.datetime(2014, 5, 2, 7, 0),
+  'title': 'Learn SQL Server Administration in a Month of Lunches',
+  'year': 2014},
+ {'day': 7,
+  'month': 4,
+  'original_date': datetime.datetime(2014, 4, 7, 7, 0),
+  'title': 'EJB 3 in Action, Second Edition',
+  'year': 2014},
+ {'day': 3, 'month': 4, 'original_date': datetime.datetime(2014, 4, 3, 7, 0), 'title': 'iOS 7 in Action', 'year': 2014},
+ {'day': 2,
+  'month': 4,
+  'original_date': datetime.datetime(2014, 4, 2, 7, 0),
+  'title': 'Practical Data Science with R',
+  'year': 2014},
+ {'day': 25,
+  'month': 3,
+  'original_date': datetime.datetime(2014, 3, 25, 7, 0),
+  'title': 'Solr in Action',
+  'year': 2014},
+ {'day': 14, 'month': 3, 'original_date': datetime.datetime(2014, 3, 14, 7, 0), 'title': 'Play for Java', 'year': 2014},
+ {'day': 5,
+  'month': 3,
+  'original_date': datetime.datetime(2014, 3, 5, 8, 0),
+  'title': 'The Mikado Method',
+  'year': 2014},
+ {'day': 4,
+  'month': 3,
+  'original_date': datetime.datetime(2014, 3, 4, 8, 0),
+  'title': 'Kanban in Action',
+  'year': 2014},
+ {'day': 20,
+  'month': 2,
+  'original_date': datetime.datetime(2014, 2, 20, 8, 0),
+  'title': 'Mule in Action, Second Edition',
+  'year': 2014},
+ {'day': 18,
+  'month': 2,
+  'original_date': datetime.datetime(2014, 2, 18, 8, 0),
+  'title': 'Gradle in Action',
+  'year': 2014},
+ {'day': 10,
+  'month': 2,
+  'original_date': datetime.datetime(2014, 2, 10, 8, 0),
+  'title': 'HTML5 in Action',
+  'year': 2014},
+ {'day': 4,
+  'month': 2,
+  'original_date': datetime.datetime(2014, 2, 4, 8, 0),
+  'title': 'Ext JS in Action, Second Edition',
+  'year': 2014},
+ {'day': 31, 'month': 12, 'original_date': datetime.datetime(2013, 12, 31, 8, 0), 'title': 'Linked Data', 'year': 2013},
+ {'day': 31,
+  'month': 12,
+  'original_date': datetime.datetime(2013, 12, 31, 8, 0),
+  'title': 'Windows Phone 8 in Action',
+  'year': 2013},
+ {'day': 31,
+  'month': 12,
+  'original_date': datetime.datetime(2013, 12, 31, 8, 0),
+  'title': 'Learn Windows IIS in a Month of Lunches',
+  'year': 2013},
+ {'day': 12,
+  'month': 12,
+  'original_date': datetime.datetime(2013, 12, 12, 8, 0),
+  'title': 'Hello World! Second Edition',
+  'year': 2013}]
+__________________________________________________
+
+__________________________________________________
+g) À partir de la liste des auteurs, créez de nouveaux attributs (author_1, author_2 ... author_n) :
+
+créez de nouveaux attributs (author_1, author_2 ... author_n) :
+
+[{'author_1': 'Matthew E. Hodges',
+  'authors': ['Matthew E. Hodges'],
+  'publishedDate': datetime.datetime(1993, 9, 1, 7, 0),
+  'title': 'Multimedia Computing',
+  'total_authors': 1},
+ {'author_1': 'Compiled',
+  'author_2': 'introduced by Ted Lewis',
+  'authors': ['Compiled', 'introduced by Ted Lewis'],
+  'publishedDate': datetime.datetime(1995, 1, 1, 8, 0),
+  'title': 'Client/Server Yellow Pages',
+  'total_authors': 2},
+ {'author_1': 'Gary Scott Malkin',
+  'authors': ['Gary Scott Malkin'],
+  'publishedDate': datetime.datetime(1995, 1, 1, 8, 0),
+  'title': 'Comprehensive Networking Glossary and Acronym Guide',
+  'total_authors': 1},
+ {'author_1': 'Margaret M. Burnett',
+  'author_2': 'Adele Goldberg',
+  'author_3': '',
+  'author_4': 'Ted G. Lewis',
+  'authors': ['Margaret M. Burnett', 'Adele Goldberg', '', 'Ted G. Lewis'],
+  'publishedDate': datetime.datetime(1995, 2, 1, 8, 0),
+  'title': 'Visual Object Oriented Programming',
+  'total_authors': 4},
+ {'author_1': 'Ted Lewis',
+  'author_2': 'friends',
+  'authors': ['Ted Lewis', 'friends'],
+  'publishedDate': datetime.datetime(1995, 4, 1, 8, 0),
+  'title': 'Object Oriented Application Frameworks',
+  'total_authors': 2},
+ {'author_1': 'C. Wayne Brown',
+  'author_2': 'Barry J. Shepherd',
+  'authors': ['C. Wayne Brown', 'Barry J. Shepherd'],
+  'publishedDate': datetime.datetime(1995, 6, 1, 7, 0),
+  'title': 'Graphics File Formats',
+  'total_authors': 2},
+ {'author_1': 'Trygve Reenskaug',
+  'authors': ['Trygve Reenskaug'],
+  'publishedDate': datetime.datetime(1995, 8, 1, 7, 0),
+  'title': 'Working with Objects',
+  'total_authors': 1},
+ {'author_1': 'Harold Lorin',
+  'authors': ['Harold Lorin'],
+  'publishedDate': datetime.datetime(1995, 12, 1, 8, 0),
+  'title': 'Doing IT Right',
+  'total_authors': 1},
+ {'author_1': 'Kenneth P. Birman',
+  'authors': ['Kenneth P. Birman'],
+  'publishedDate': datetime.datetime(1996, 1, 1, 8, 0),
+  'title': 'Building Secure and Reliable Network Applications',
+  'total_authors': 1},
+ {'author_1': 'Steven J. Gutz',
+  'authors': ['Steven J. Gutz'],
+  'publishedDate': datetime.datetime(1996, 4, 23, 7, 0),
+  'title': 'TCP/IP Programming for OS/2',
+  'total_authors': 1},
+ {'author_1': 'Evan Rosen',
+  'authors': ['Evan Rosen'],
+  'publishedDate': datetime.datetime(1996, 6, 1, 7, 0),
+  'title': 'Personal Videoconferencing',
+  'total_authors': 1},
+ {'author_1': 'Timothy D. Korson',
+  'author_2': 'Vijay K. Vaishnavi',
+  'authors': ['Timothy D. Korson', 'Vijay K. Vaishnavi'],
+  'publishedDate': datetime.datetime(1996, 6, 1, 7, 0),
+  'title': 'Object Technology Centers of Excellence',
+  'total_authors': 2},
+ {'author_1': 'Bruce Simpson',
+  'author_2': 'John Mitchell',
+  'author_3': 'Brian Christeson',
+  'author_4': 'Rehan Zaidi',
+  'authors': ['Bruce Simpson', 'John Mitchell', 'Brian Christeson', 'Rehan Zaidi', '', 'Jonathan Levine'],
+  'publishedDate': datetime.datetime(1996, 6, 1, 7, 0),
+  'title': 'Making Sense of Java',
+  'total_authors': 6},
+ {'author_1': 'Ronny Richardson',
+  'authors': ['Ronny Richardson'],
+  'publishedDate': datetime.datetime(1996, 7, 1, 7, 0),
+  'title': 'Microsoft Office Essentials',
+  'total_authors': 1},
+ {'author_1': 'Richard Scott Mark',
+  'authors': ['Richard Scott Mark'],
+  'publishedDate': datetime.datetime(1996, 10, 1, 7, 0),
+  'title': 'Internet BBSs',
+  'total_authors': 1},
+ {'author_1': 'Early Stephens',
+  'authors': ['Early Stephens'],
+  'publishedDate': datetime.datetime(1997, 1, 1, 8, 0),
+  'title': 'Implementing PeopleSoft Financials',
+  'total_authors': 1},
+ {'author_1': 'Daniel Minoli',
+  'author_2': 'Andrew Schmidt',
+  'authors': ['Daniel Minoli', 'Andrew Schmidt'],
+  'publishedDate': datetime.datetime(1997, 1, 1, 8, 0),
+  'title': 'Client/Server Applications on ATM Networks',
+  'total_authors': 2},
+ {'author_1': 'Douglas W. Bennett',
+  'authors': ['Douglas W. Bennett'],
+  'publishedDate': datetime.datetime(1997, 2, 1, 8, 0),
+  'title': 'Designing Hard Software',
+  'total_authors': 1},
+ {'author_1': 'Paul S. Hethmon',
+  'authors': ['Paul S. Hethmon'],
+  'publishedDate': datetime.datetime(1997, 3, 1, 8, 0),
+  'title': 'Illustrated Guide to HTTP',
+  'total_authors': 1},
+ {'author_1': 'William R. Cockayne and Michael Zyda',
+  'author_2': 'editors',
+  'authors': ['William R. Cockayne and Michael Zyda', 'editors'],
+  'publishedDate': datetime.datetime(1997, 3, 1, 8, 0),
+  'title': 'Mobile Agents',
+  'total_authors': 2}]
+**********
+COMPORTEMENT DU PIPELINE:
+1.'authors': ['William R. Cockayne and Michael Zyda', 'editors'] : plusieurs auteurs dans le titre
+2.'authors': ['Margaret M. Burnett', 'Adele Goldberg', '', 'Ted G. Lewis'] : auteur vide dans le titre
+**********
+__________________________________________________
+
+__________________________________________________
+g) créer une colonne contenant le nom du premier auteur, puis agréger selon cette colonne pour obtenir le nombre d'articles pour chaque premier auteur. Afficher le nombre de publications pour les 10 premiers auteurs les plus prolifiques :
+
+2. Extraction du premier auteur pour chaque document...
+Étape ajoutée : {'$addFields': {'first_author': {'$arrayElemAt': ['$authors', 0]}}}
+
+3. Comptage des publications par premier auteur...
+Étape ajoutée : {'$group': {'_id': '$first_author', 'publication_count': {'$sum': 1}}}
+
+4. Tri des auteurs par nombre de publications (décroissant)...
+Étapes ajoutées : {'$sort': {'publication_count': -1}} puis {'$limit': 10}
+
+Exécution du pipeline d'agrégation...
+
+Résultats - Top 10 des auteurs les plus prolifiques:
+--------------------------------------------------
+1. Vikram Goyal: 12 publications
+2. Don Jones: 6 publications
+3. Christian Bauer: 4 publications
+4. Craig Walls: 4 publications
+5. Jon Skeet: 3 publications
+6. David A. Black: 3 publications
+7. Ted Neward: 3 publications
+8. Tim Hatton: 3 publications
+9. Bear Bibeault: 3 publications
+10. Erik Hatcher: 3 publications
+--------------------------------------------------
