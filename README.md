@@ -1,18 +1,9 @@
-📚 MongoDB – Books Data Exploration & Analytics (Evaluation Project)
+📚 MongoDB – Books Data Exploration & Analytics
 
-DataScientest | Data Engineering / Data Analytics
 
 🎯 Business Context
 
-The project simulates a data exploration mission for a publishing platform, where the objective is to extract actionable insights from a book catalog. The dataset contains books related to programming and data science, and the business goal is to understand:
-
-which books are most relevant and popular,
-
-the distribution of categories and authors,
-
-content quality and publication trends,
-
-keyword-based insights for marketing and catalog strategy.
+Conducted an end-to-end data analysis mission for a publishing client, focusing on their programming and data science book catalog. The project aimed to uncover actionable insights on book popularity, author and category distribution, content trends, and keyword opportunities to directly inform their marketing and catalog strategy.
 
 🧱 Data Architecture & Approach
 
